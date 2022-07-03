@@ -1,4 +1,4 @@
-## useage:
+## usage:
 vscode -s "git repository address" "path to save the code"
 ### this will clone the code from github to local path, and open with vscode.
 
