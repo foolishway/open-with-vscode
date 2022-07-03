@@ -26,15 +26,12 @@ func main() {
 		var dirName string = (gitRepo)[strings.LastIndex((gitRepo), "/")+1:]
 		dirName = dirName[:strings.LastIndex(dirName, ".")]
 
-		// download git repo
+		var clonePath = ""
 		if len(flag.Args()) != 0 {
-			var clonePath string = path.Clean(flag.Args()[0] + "/" + dirName)
-			gitClone(gitRepo, clonePath)
-			openWithVscode(clonePath)
-		} else {
-			gitClone(*source, "")
-			openWithVscode("./" + dirName)
+			clonePath = path.Clean(flag.Args()[0] + "/" + dirName)
 		}
+		gitClone(gitRepo, clonePath)
+		openWithVscode(clonePath)
 	}
 }
 
