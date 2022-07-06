@@ -22,10 +22,10 @@ func main() {
 		openWithVscode(t)
 	} else {
 		var gitRepo = *source
-		var clonePath = ""
+		var dirName string = (gitRepo)[strings.LastIndex((gitRepo), "/")+1:]
+		dirName = dirName[:strings.LastIndex(dirName, ".")]
+		var clonePath = "./" + dirName
 		if len(flag.Args()) != 0 {
-			var dirName string = (gitRepo)[strings.LastIndex((gitRepo), "/")+1:]
-			dirName = dirName[:strings.LastIndex(dirName, ".")]
 			clonePath = path.Clean(flag.Args()[0] + "/" + dirName)
 		}
 		gitClone(gitRepo, clonePath)
