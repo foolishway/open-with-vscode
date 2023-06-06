@@ -21,7 +21,7 @@ func main() {
 		var dirName string = (target)[strings.LastIndex((target), "/")+1:]
 		dirName = dirName[:strings.LastIndex(dirName, ".")]
 		var clonePath = "./" + dirName
-		if len(os.Args) >= 2 {
+		if len(os.Args) > 2 {
 			clonePath = path.Clean(os.Args[2] + "/" + dirName)
 		}
 		gitClone(target, clonePath)
